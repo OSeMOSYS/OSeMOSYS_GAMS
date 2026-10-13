@@ -1,7 +1,7 @@
 * OSEMOSYS_EQU.GMS - model equations
 *
 * OSeMOSYS 2011.07.07 conversion to GAMS by Ken Noble, Noble-Soft Systems - August 2012
-* OSeMOSYS 2017.11.08 update by Thorsten Burandt, Konstantin Löffler and Karlo Hainsch, TU Berlin (Workgroup for Infrastructure Policy) - October 2017
+* OSeMOSYS 2017.11.08 update by Thorsten Burandt, Konstantin Lï¿½ffler and Karlo Hainsch, TU Berlin (Workgroup for Infrastructure Policy) - October 2017
 *
 * OSeMOSYS 2017.11.08
 * Main changes to previous version OSeMOSYS_2016_08_01
@@ -85,7 +85,7 @@ equation EBa9_EnergyBalanceEachTS3(REGION,TIMESLICE,FUEL,YEAR);
 EBa9_EnergyBalanceEachTS3(r,l,f,y).. RateOfDemand(r,l,f,y)*YearSplit(l,y) =e= Demand(r,l,f,y);
 *s.t. EBa10_EnergyBalanceEachTS4{r in REGION, rr in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: Trade[r,rr,l,f,y] = -Trade[rr,r,l,f,y];
 equation EBa10_EnergyBalanceEachTS4(REGION,r,TIMESLICE,FUEL,YEAR);
-EBa10_EnergyBalanceEachTS4(r,rr,l,f,y).. Trade(r,rr,l,f,y) =e= -Trade(r,rr,l,f,y);
+EBa10_EnergyBalanceEachTS4(r,rr,l,f,y).. Trade(r,rr,l,f,y) =e= -Trade(rr,r,l,f,y);
 *s.t. EBa11_EnergyBalanceEachTS5{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR}: Production[r,l,f,y] >= Demand[r,l,f,y] + Use[r,l,f,y] + sum{rr in REGION} Trade[r,rr,l,f,y]*TradeRoute[r,rr,f,y];
 equation EBa11_EnergyBalanceEachTS5(REGION,TIMESLICE,FUEL,YEAR);
 EBa11_EnergyBalanceEachTS5(r,l,f,y).. Production(r,l,f,y) =g= Demand(r,l,f,y) + Use(r,l,f,y) + sum(rr, (Trade(r,rr,l,f,y)*TradeRoute(r,rr,f,y)));
