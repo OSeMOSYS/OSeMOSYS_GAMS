@@ -1,7 +1,7 @@
 * OSEMOSYS_DEC.GMS - declarations for sets, parameters, variables (but not equations)
 *
 * OSEMOSYS 2011.07.07 conversion to GAMS by Ken Noble, Noble-Soft Systems - August 2012
-* OSEMOSYS 2017.11.08 update by Thorsten Burandt, Konstantin Löffler and Karlo Hainsch, TU Berlin (Workgroup for Infrastructure Policy) - October 2017
+* OSEMOSYS 2017.11.08 update by Thorsten Burandt, Konstantin Lï¿½ffler and Karlo Hainsch, TU Berlin (Workgroup for Infrastructure Policy) - October 2017
 *
 * OSEMOSYS 2017.11.08
 * Open Source energy Modeling SYStem
@@ -185,8 +185,8 @@ positive variable UseByTechnologyAnnual(REGION,TECHNOLOGY,FUEL,YEAR);
 positive variable RateOfUse(REGION,TIMESLICE,FUEL,YEAR);
 positive variable UseByTechnology(REGION,TIMESLICE,TECHNOLOGY,FUEL,YEAR);
 positive variable Use(REGION,TIMESLICE,FUEL,YEAR);
-positive variable Trade(REGION,rr,TIMESLICE,FUEL,YEAR);
-positive variable TradeAnnual(REGION,rr,FUEL,YEAR);
+variable Trade(REGION,rr,TIMESLICE,FUEL,YEAR);
+variable TradeAnnual(REGION,rr,FUEL,YEAR);
 *
 positive variable ProductionAnnual(REGION,FUEL,YEAR);
 positive variable UseAnnual(REGION,FUEL,YEAR);
